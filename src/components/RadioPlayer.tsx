@@ -1,14 +1,14 @@
-import { faPlay, faStop } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faSpinner, faStop } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios, { AxiosError } from "axios";
 import React, {
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
 } from "react";
-import combineClasses from "../utils/combineClasses";
 import Button from "./Button";
 
 interface IRadioPlayerProps {
@@ -24,6 +24,7 @@ const RadioPlayer: React.FC<IRadioPlayerProps> = ({ shortcode }) => {
   const [error, setError] = useState<AxiosError | null>(null);
   const [playing, setPlaying] = useState(false);
   const refPlayer = useRef<HTMLAudioElement>(null);
+  const firstLoad = useRef(true);
 
   const getInfo = async () => {
     setLoading(true);
@@ -41,9 +42,12 @@ const RadioPlayer: React.FC<IRadioPlayerProps> = ({ shortcode }) => {
   };
 
   useEffect(() => {
+    firstLoad.current = false;
+
     const interval = setInterval(() => {
       getInfo();
     }, 1000 * 15);
+
     getInfo();
 
     return () => {
@@ -136,9 +140,17 @@ const RadioPlayer: React.FC<IRadioPlayerProps> = ({ shortcode }) => {
     []
   );
 
+  if (loading && firstLoad.current)
+    return (
+      <div className="flex items-center">
+        <FontAwesomeIcon icon={faSpinner} className="animate-spin mr-2" />
+        Loading Radio...
+      </div>
+    );
+
   if (!stationInfo?.live.is_live)
     return (
-      <div className="p-2 bg-red-500 text-white rounded-lg mt-4">
+      <div className=" font-bold text-red-500 mt-4">
         The radio is currently off air.
       </div>
     );
