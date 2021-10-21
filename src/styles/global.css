@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+@layer base {
+  main {
+    @apply container;
+  }
+
+  h1 {
+    @apply text-3xl font-black;
+  }
+}
