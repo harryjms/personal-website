@@ -4,10 +4,34 @@
 
 @layer base {
   main {
-    @apply container;
+    @apply p-2 sm:p-0 container;
   }
 
   h1 {
     @apply text-3xl font-black;
+  }
+
+  p {
+    @apply my-2;
+  }
+
+  button {
+    @apply px-2 py-1 text-white rounded-md font-medium;
+  }
+
+  button:not([aria-disabled="true"]) {
+    @apply hover:bg-blue-600;
+  }
+
+  button[aria-disabled="true"] {
+    @apply opacity-50;
+  }
+
+  button.media-control.stop {
+    @apply bg-red-500;
+  }
+
+  button.media-control.play {
+    @apply bg-blue-500;
   }
 }
