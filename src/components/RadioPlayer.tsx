@@ -1,4 +1,9 @@
-import { faPlay, faSpinner, faStop } from "@fortawesome/free-solid-svg-icons";
+import {
+  faExclamationTriangle,
+  faPlay,
+  faSpinner,
+  faStop,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios, { AxiosError } from "axios";
 import React, {
@@ -148,54 +153,66 @@ const RadioPlayer: React.FC<IRadioPlayerProps> = ({ shortcode }) => {
       </div>
     );
 
-  if (!stationInfo?.live.is_live)
+  if (!loading && error)
+    return (
+      <div className="font-bold text-red-500 mt-4">
+        <FontAwesomeIcon icon={faExclamationTriangle} className="mr-2" />
+        There was an error when loading the radio. It could be that the server
+        is unreachable.
+      </div>
+    );
+
+  if (!loading && !stationInfo?.live.is_live)
     return (
       <div className=" font-bold text-red-500 mt-4">
         The radio is currently off air.
       </div>
     );
-  return (
-    <div className="w-full sm:w-1/2">
-      <div className="flex">
-        <div className="w-[100px] mr-2">
-          <img src={currentSong?.art} className="rounded-lg" />
-        </div>
-        <div className="flex w-full sm:w-1/2 flex-col justify-center">
-          <div className="uppercase font-bold text-xs text-blue-500">
-            Now playing
+
+  if (stationInfo)
+    return (
+      <div className="w-full sm:w-1/2">
+        <div className="flex">
+          <div className="w-[100px] mr-2">
+            <img src={currentSong?.art} className="rounded-lg" />
           </div>
-          <div className="text-lg font-bold">{currentSong?.artist}</div>
-          <div className="flex gap-2 items-center sm:flex-col sm:justify-center sm:items-start sm:gap-0">
-            <div>{currentSong?.title}</div>
-            {currentSong?.album && (
-              <div className="text-xs font-light text-gray-500">
-                {currentSong.albumURL ? (
-                  <a href={currentSong.albumURL} target="_blank">
-                    {currentSong.album}
-                  </a>
-                ) : (
-                  currentSong.album
-                )}
-              </div>
+          <div className="flex w-full sm:w-1/2 flex-col justify-center">
+            <div className="uppercase font-bold text-xs text-blue-500">
+              Now playing
+            </div>
+            <div className="text-lg font-bold">{currentSong?.artist}</div>
+            <div className="flex gap-2 items-center sm:flex-col sm:justify-center sm:items-start sm:gap-0">
+              <div>{currentSong?.title}</div>
+              {currentSong?.album && (
+                <div className="text-xs font-light text-gray-500">
+                  {currentSong.albumURL ? (
+                    <a href={currentSong.albumURL} target="_blank">
+                      {currentSong.album}
+                    </a>
+                  ) : (
+                    currentSong.album
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="flex flex-col justify-center ml-4 items-end">
+            {playing ? (
+              <BtnControl control="stop" key="btn-stop" />
+            ) : (
+              <BtnControl control="play" key="btn-play" />
             )}
           </div>
         </div>
-        <div className="flex flex-col justify-center ml-4 items-end">
-          {playing ? (
-            <BtnControl control="stop" key="btn-stop" />
-          ) : (
-            <BtnControl control="play" key="btn-play" />
-          )}
-        </div>
-      </div>
 
-      <audio
-        title={`${currentSong?.artist} - ${currentSong?.title}`}
-        src={streamUrl}
-        ref={refPlayer}
-      />
-    </div>
-  );
+        <audio
+          title={`${currentSong?.artist} - ${currentSong?.title}`}
+          src={streamUrl}
+          ref={refPlayer}
+        />
+      </div>
+    );
+  return null;
 };
 
 export default RadioPlayer;
