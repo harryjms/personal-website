@@ -51,6 +51,7 @@ declare module Radio {
     artist: string;
     title: string;
     album: string;
+    albumURL?: string;
     genre: string;
     lyrics: string;
     art: string;

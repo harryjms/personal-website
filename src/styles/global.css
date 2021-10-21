@@ -26,12 +26,4 @@
   button[aria-disabled="true"] {
     @apply opacity-50;
   }
-
-  button.media-control.stop {
-    @apply bg-red-500;
-  }
-
-  button.media-control.play {
-    @apply bg-blue-500;
-  }
 }
