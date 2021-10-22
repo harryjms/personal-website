@@ -3,6 +3,9 @@
 @tailwind components;
 
 @layer base {
+  body {
+    @apply dark:bg-black text-white;
+  }
   nav {
     @apply p-2 mt-4 sm:p-0;
   }
