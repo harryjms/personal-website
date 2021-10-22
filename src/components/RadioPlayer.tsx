@@ -162,7 +162,7 @@ const RadioPlayer: React.FC<IRadioPlayerProps> = ({ shortcode }) => {
       </div>
     );
 
-  if (!loading && !stationInfo?.live.is_live)
+  if (!loading && stationInfo?.mounts?.length === 0)
     return (
       <div className=" font-bold text-red-500 mt-4">
         The radio is currently off air.
