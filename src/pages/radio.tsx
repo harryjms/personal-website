@@ -1,6 +1,7 @@
 import React from "react";
 import RadioPlayer from "../components/RadioPlayer";
 import Head from "next/head";
+import Navigation from "../components/Navigation";
 
 const Radio = () => {
   return (
@@ -10,10 +11,7 @@ const Radio = () => {
       </Head>
       <main>
         <h1>Radio.</h1>
-        <div>
-          <p>This is my little radio station.</p>
-          <RadioPlayer shortcode="radio_east" />
-        </div>
+        <RadioPlayer shortcode="radio_east" />
       </main>
     </>
   );

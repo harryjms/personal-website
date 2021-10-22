@@ -3,12 +3,18 @@
 @tailwind components;
 
 @layer base {
+  nav {
+    @apply p-2 mt-4 sm:p-0;
+  }
   main {
-    @apply p-2 sm:p-0 container;
+    @apply p-2 pt-0 sm:p-0 container;
   }
 
   h1 {
-    @apply text-3xl font-black;
+    @apply text-6xl font-black my-4 sm:my-8;
+  }
+  h2 {
+    @apply text-2xl font-extrabold mt-4;
   }
 
   p {
@@ -25,5 +31,9 @@
 
   button[aria-disabled="true"] {
     @apply opacity-50;
+  }
+
+  .HomeLink a:hover + div {
+    @apply w-full;
   }
 }
