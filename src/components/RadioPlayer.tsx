@@ -171,38 +171,36 @@ const RadioPlayer: React.FC<IRadioPlayerProps> = ({ shortcode }) => {
 
   if (stationInfo)
     return (
-      <div className="w-full sm:w-1/2">
-        <div className="flex">
-          <div className="w-[100px] mr-2">
-            <img src={currentSong?.art} className="rounded-lg" />
+      <div className="w-full flex flex-col items-center sm:items-start sm:flex-row sm:w-1/2">
+        <div className="w-3/4 sm:w-[100px] mr-2">
+          <img src={currentSong?.art} className="rounded-lg" />
+        </div>
+        <div className="flex w-full flex-col justify-center text-center sm:w-1/2 sm:text-left">
+          <div className="uppercase font-bold text-xs text-blue-500 mt-4 sm:mt-0">
+            Now playing
           </div>
-          <div className="flex w-full sm:w-1/2 flex-col justify-center">
-            <div className="uppercase font-bold text-xs text-blue-500">
-              Now playing
-            </div>
-            <div className="text-lg font-bold">{currentSong?.artist}</div>
-            <div className="flex gap-2 items-center sm:flex-col sm:justify-center sm:items-start sm:gap-0">
-              <div>{currentSong?.title}</div>
-              {currentSong?.album && (
-                <div className="text-xs font-light text-gray-500">
-                  {currentSong.albumURL ? (
-                    <a href={currentSong.albumURL} target="_blank">
-                      {currentSong.album}
-                    </a>
-                  ) : (
-                    currentSong.album
-                  )}
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="flex flex-col justify-center ml-4 items-end">
-            {playing ? (
-              <BtnControl control="stop" key="btn-stop" />
-            ) : (
-              <BtnControl control="play" key="btn-play" />
+          <div className="text-lg font-bold">{currentSong?.artist}</div>
+          <div className="flex gap-2 flex-col items-center sm:justify-center sm:items-start sm:gap-0">
+            <div>{currentSong?.title}</div>
+            {currentSong?.album && (
+              <div className="text-xs font-light text-gray-500">
+                {currentSong.albumURL ? (
+                  <a href={currentSong.albumURL} target="_blank">
+                    {currentSong.album}
+                  </a>
+                ) : (
+                  currentSong.album
+                )}
+              </div>
             )}
           </div>
+        </div>
+        <div className="flex flex-col justify-center mt-4 ml-4 sm:mt-0 sm:self-center items-end">
+          {playing ? (
+            <BtnControl control="stop" key="btn-stop" />
+          ) : (
+            <BtnControl control="play" key="btn-play" />
+          )}
         </div>
 
         <audio
