@@ -1,5 +1,8 @@
 import React from "react";
-import WordGameContainer from "../components/WordGame";
+import dynamic from "next/dynamic";
+const WordGameContainer = dynamic(() => import("../components/WordGame"), {
+  ssr: false,
+});
 
 const WordGame = () => {
   return (

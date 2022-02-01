@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import Complete from "./Complete";
+import Stats from "./Stats";
 import { loadProgress, saveProgress } from "./helpers/gameProgress";
 import Keyboard from "./Keyboard";
 import Row from "./Row";
@@ -20,6 +20,7 @@ interface IWordGameContainerProps {
 export enum GAME_STATE {
   IN_PROGRESS = "IN_PROGRESS",
   COMPLETE = "COMPLETE",
+  LOST = "LOST",
 }
 
 interface IGameContext {
@@ -107,7 +108,7 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
 
   // Game completed
   useEffect(() => {
-    if (gameState === GAME_STATE.COMPLETE) {
+    if (gameState !== GAME_STATE.IN_PROGRESS) {
       setShowStats(true);
     }
   }, [gameState]);
@@ -173,7 +174,7 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
       <div className="relative flex flex-col w-full max-w-[400px] mx-auto h-full">
         <div className="flex flex-col gap-2 mb-4 flex-1">{rows}</div>
         <Keyboard />
-        <Complete show={showStats} />
+        <Stats show={showStats} />
       </div>
     </GameContext.Provider>
   );

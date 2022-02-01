@@ -1,7 +1,6 @@
 import React from "react";
 import RadioPlayer from "../components/RadioPlayer";
 import Head from "next/head";
-import Navigation from "../components/Navigation";
 
 const Radio = () => {
   return (
