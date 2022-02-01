@@ -28,6 +28,8 @@ const Keyboard = () => {
   }, [solution, board, evals, keys]);
 
   const handleKeyPress = (letter: string) => {
+    const allowedKeys = keys.flatMap((k) => k);
+    if (!allowedKeys.includes(letter)) return;
     switch (letter) {
       case "↵":
         evaluate();
@@ -40,6 +42,9 @@ const Keyboard = () => {
       switch (e.key) {
         case "Enter":
           handleKeyPress("↵");
+          break;
+        case "Backspace":
+          handleKeyPress("←");
           break;
         default:
           handleKeyPress(e.key);
