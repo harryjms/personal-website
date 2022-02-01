@@ -3,6 +3,10 @@
 @tailwind components;
 
 @layer base {
+  #__next {
+    @apply h-screen;
+  }
+
   body {
     @apply dark:bg-black dark:text-white;
   }
