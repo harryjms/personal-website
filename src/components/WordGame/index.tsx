@@ -35,19 +35,22 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
   const [evals, setEval] = useState<EVALS[][]>([]);
 
   const evaluate = useCallback(() => {
-    let result = [];
-    const latest = board[board.length - 1];
-    for (let i = 0; i < latest.length; i++) {
-      if (latest[i] === solution[i]) {
-        result.push("correct");
-      } else if (solution.includes(latest[i])) {
-        result.push("present");
-      } else {
-        result.push("absent");
+    let result: EVALS[][] = [];
+    board.forEach((word) => {
+      let wordResult = [];
+      for (let i = 0; i < word.length; i++) {
+        if (word[i] === solution[i]) {
+          wordResult.push("correct");
+        } else if (solution.includes(word[i])) {
+          wordResult.push("present");
+        } else {
+          wordResult.push("absent");
+        }
       }
-    }
+      result.push(wordResult);
+    });
 
-    setEval((state) => [...state, result]);
+    setEval(result);
   }, [board, solution]);
 
   const rows = useMemo(() => {
