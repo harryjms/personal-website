@@ -38,24 +38,28 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
   const [board, setBoard] = useState<string[]>([]);
   const [evals, setEval] = useState<EVALS[][]>([]);
 
+  const guessIndex = useMemo(() => evals.length, [evals]);
+
   const evaluate = useCallback(() => {
     let result: EVALS[][] = [];
-    board.forEach((word) => {
-      let wordResult = [];
-      for (let i = 0; i < word.length; i++) {
-        if (word[i] === solution[i]) {
-          wordResult.push("correct");
-        } else if (solution.includes(word[i])) {
-          wordResult.push("present");
-        } else {
-          wordResult.push("absent");
+    if (board[guessIndex]?.length === solution.length) {
+      board.forEach((word) => {
+        let wordResult = [];
+        for (let i = 0; i < word.length; i++) {
+          if (word[i] === solution[i]) {
+            wordResult.push("correct");
+          } else if (solution.includes(word[i])) {
+            wordResult.push("present");
+          } else {
+            wordResult.push("absent");
+          }
         }
-      }
-      result.push(wordResult);
-    });
+        result.push(wordResult);
+      });
 
-    setEval(result);
-  }, [board, solution]);
+      setEval(result);
+    }
+  }, [board, guessIndex, solution]);
 
   const rows = useMemo(() => {
     let result = [];
@@ -74,7 +78,6 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
 
   const handleLetter = useCallback(
     (letter: string) => {
-      const guessIndex = evals.length;
       if (/[A-Za-z]/.test(letter)) {
         setBoard((state) => {
           if (state[guessIndex] && state[guessIndex].length === solution.length)
@@ -86,19 +89,18 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
         });
       }
     },
-    [solution, evals]
+    [solution, guessIndex]
   );
 
   const handleBackspace = useCallback(() => {
     setBoard((state) => {
-      const guessIndex = evals.length;
       let newBoard = [...state];
       let guess = newBoard[guessIndex];
       newBoard[guessIndex] = guess.slice(0, -1);
 
       return newBoard;
     });
-  }, [evals]);
+  }, [guessIndex]);
 
   return (
     <GameContext.Provider
