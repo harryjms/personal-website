@@ -9,6 +9,10 @@ const Navigation = () => {
       path: "/",
       label: "Home",
     },
+    {
+      path: "/word-game",
+      label: "Word Game",
+    },
   ];
   return (
     <nav className="container flex gap-4">

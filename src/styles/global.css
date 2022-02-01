@@ -3,6 +3,14 @@
 @tailwind components;
 
 @layer base {
+  * {
+    @apply box-border;
+  }
+
+  #__next {
+    @apply h-screen;
+  }
+
   body {
     @apply dark:bg-black dark:text-white;
   }

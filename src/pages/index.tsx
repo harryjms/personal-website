@@ -16,7 +16,7 @@ const Homepage = () => {
         <h2>About me</h2>
         <p>
           I am a Senior Software Engineer living in London and working at the
-          BBC on products that help power radio.
+          BBC on products that help power radio.w
         </p>
         <p className="mt-8">
           <Socials />
