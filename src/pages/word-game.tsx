@@ -13,7 +13,7 @@ const WordGame = ({ solution }) => {
 };
 
 export async function getServerSideProps() {
-  return { props: { solution: "those" } };
+  return { props: { solution: "words" } };
 }
 
 export default WordGame;
