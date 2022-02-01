@@ -14,6 +14,11 @@ interface IWordGameContainerProps {
   solution: string;
 }
 
+export enum GAME_STATE {
+  IN_PROGRESS = "IN_PROGRESS",
+  COMPLETE = "COMPLETE",
+}
+
 interface IGameContext {
   solution: string;
   board: string[];
@@ -21,6 +26,7 @@ interface IGameContext {
   evaluate: () => void;
   handleLetter: (letter: string) => void;
   handleBackspace: () => void;
+  gameState: GAME_STATE;
 }
 
 const GameContext = createContext<IGameContext>({
@@ -30,6 +36,7 @@ const GameContext = createContext<IGameContext>({
   evaluate: () => {},
   handleLetter: () => {},
   handleBackspace: () => {},
+  gameState: GAME_STATE.IN_PROGRESS,
 });
 
 export const useGameContext = () => useContext(GameContext);
@@ -37,6 +44,9 @@ export const useGameContext = () => useContext(GameContext);
 const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
   const [board, setBoard] = useState<string[]>([]);
   const [evals, setEval] = useState<EVALS[][]>([]);
+  const [gameState, setGameState] = useState<GAME_STATE>(
+    GAME_STATE.IN_PROGRESS
+  );
 
   const guessIndex = useMemo(() => evals.length, [evals]);
 
@@ -111,6 +121,7 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
         evaluate,
         handleLetter,
         handleBackspace,
+        gameState,
       }}
     >
       <div className="flex flex-col w-full max-w-[400px] mx-auto h-full">
