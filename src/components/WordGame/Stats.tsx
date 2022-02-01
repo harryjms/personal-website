@@ -3,6 +3,7 @@ import { GAME_STATE, useGameContext } from ".";
 import { generateStats, loadStats, saveStats } from "./helpers/gameStats";
 
 import Row from "./Row";
+import Share from "./Share";
 import StatBox from "./StatBox";
 
 interface ICompleteProps {
@@ -41,6 +42,7 @@ const Stats: React.FC<ICompleteProps> = ({ show }) => {
           allCorrect
         />
       </div>
+      <Share />
       <hr className="my-4" />
       <div className="flex gap-4">
         <StatBox number={stats.gamesWon} caption="Games won" />

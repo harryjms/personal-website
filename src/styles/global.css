@@ -3,6 +3,10 @@
 @tailwind components;
 
 @layer base {
+  * {
+    @apply box-border;
+  }
+
   #__next {
     @apply h-screen;
   }
