@@ -47,7 +47,6 @@ export const generateStats = (
 
   stats.gamesPlayed += 1;
   stats.lastSolution = solution;
-
   const numberOfGuesses = evals.length;
   if (won) {
     stats.guesses[numberOfGuesses] += 1;

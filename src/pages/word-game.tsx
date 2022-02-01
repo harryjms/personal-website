@@ -4,12 +4,16 @@ const WordGameContainer = dynamic(() => import("../components/WordGame"), {
   ssr: false,
 });
 
-const WordGame = () => {
+const WordGame = ({ solution }) => {
   return (
     <main>
-      <WordGameContainer solution="words" />
+      <WordGameContainer solution={solution} />
     </main>
   );
 };
+
+export async function getServerSideProps() {
+  return { props: { solution: "those" } };
+}
 
 export default WordGame;

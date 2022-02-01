@@ -34,7 +34,12 @@ const Stats: React.FC<ICompleteProps> = ({ show }) => {
       <h2>Statistics</h2>
       <p>You have completed todays word game!</p>
       <div className="flex flex-col gap-2 mb-4 flex-1">
-        <Row value={solution} squares={solution.length} allCorrect />
+        <Row
+          key={solution}
+          value={solution}
+          squares={solution.length}
+          allCorrect
+        />
       </div>
       <hr className="my-4" />
       <div className="flex gap-4">

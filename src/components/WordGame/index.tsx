@@ -118,7 +118,7 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
     for (let i = 0; i < 6; i++) {
       result.push(
         <Row
-          key={`row-${i + 1}`}
+          key={solution}
           squares={solution.length}
           value={board[i] || ""}
           evaluations={evals[i] || null}
