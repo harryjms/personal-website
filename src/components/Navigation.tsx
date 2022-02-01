@@ -7,9 +7,8 @@ const Navigation = () => {
   const links = [
     {
       path: "/",
-      label: "Harry",
+      label: "Home",
     },
-    { path: "/radio", label: "Radio" },
   ];
   return (
     <nav className="container flex gap-4">
