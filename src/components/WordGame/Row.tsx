@@ -5,10 +5,16 @@ import Square from "./Square";
 interface IRowProps {
   squares: number;
   value: string;
-  evaluations: EVALS[] | null;
+  evaluations?: EVALS[] | null;
+  allCorrect?: boolean;
 }
 
-const Row: React.FC<IRowProps> = ({ squares, value, evaluations }) => {
+const Row: React.FC<IRowProps> = ({
+  squares,
+  value,
+  evaluations,
+  allCorrect,
+}) => {
   const renderRow = useMemo(() => {
     let result = [];
     for (let i = 0; i < squares; i++) {
@@ -16,12 +22,14 @@ const Row: React.FC<IRowProps> = ({ squares, value, evaluations }) => {
         <Square
           key={`square-${i}`}
           letter={value[i]}
-          evaluation={evaluations ? evaluations[i] : undefined}
+          evaluation={
+            allCorrect ? "correct" : evaluations ? evaluations[i] : undefined
+          }
         />
       );
     }
     return result;
-  }, [squares, evaluations, value]);
+  }, [squares, evaluations, value, allCorrect]);
   return <div className="flex gap-2">{renderRow}</div>;
 };
 

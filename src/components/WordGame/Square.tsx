@@ -25,7 +25,7 @@ const Square: React.FC<ISquareProps> = ({ letter, evaluation }) => {
 
   const className = useMemo(() => {
     const base = [
-      "flex items-center justify-center w-full border-2 border-gray-400 rounded-sm text-2xl font-bold transition transition-color",
+      "flex items-center justify-center w-full border-2 border-gray-400 rounded-sm text-2xl font-bold text-white transition transition-color",
     ];
 
     switch (evaluation) {

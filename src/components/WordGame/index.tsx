@@ -6,6 +6,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
+import Complete from "./Complete";
 import Keyboard from "./Keyboard";
 import Row from "./Row";
 
@@ -45,6 +46,7 @@ export const useGameContext = () => useContext(GameContext);
 const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
   const [board, setBoard] = useState<string[]>([]);
   const [evals, setEval] = useState<EVALS[][]>([]);
+  const [showStats, setShowStats] = useState(false);
   const [gameState, setGameState] = useState<GAME_STATE>(
     GAME_STATE.IN_PROGRESS
   );
@@ -88,6 +90,13 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
     });
     if (isComplete) setGameState(GAME_STATE.COMPLETE);
   }, [evals]);
+
+  // Game completed
+  useEffect(() => {
+    if (gameState === GAME_STATE.COMPLETE) {
+      setShowStats(true);
+    }
+  }, [gameState]);
 
   const rows = useMemo(() => {
     let result = [];
@@ -142,9 +151,10 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
         gameState,
       }}
     >
-      <div className="flex flex-col w-full max-w-[400px] mx-auto h-full">
+      <div className="relative flex flex-col w-full max-w-[400px] mx-auto h-full">
         <div className="flex flex-col gap-2 mb-4 flex-1">{rows}</div>
         <Keyboard />
+        <Complete show={showStats} />
       </div>
     </GameContext.Provider>
   );
