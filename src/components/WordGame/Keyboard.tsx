@@ -1,11 +1,18 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import { EVALS, useGameContext } from ".";
+import { EVALS, GAME_STATE, useGameContext } from ".";
 import evaluatedLetters from "./helpers/evaluatedLetters";
 import Key from "./Key";
 
 const Keyboard = () => {
-  const { solution, board, evals, evaluate, handleLetter, handleBackspace } =
-    useGameContext();
+  const {
+    solution,
+    board,
+    evals,
+    evaluate,
+    handleLetter,
+    handleBackspace,
+    gameState,
+  } = useGameContext();
   const keys = [
     ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
     ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
@@ -31,7 +38,8 @@ const Keyboard = () => {
   const handleKeyPress = useCallback(
     (letter: string) => {
       const allowedKeys = keys.flatMap((k) => k);
-      if (!allowedKeys.includes(letter)) return;
+      if (!allowedKeys.includes(letter) || gameState === GAME_STATE.COMPLETE)
+        return;
       switch (letter) {
         case "↵":
           evaluate();
@@ -42,7 +50,7 @@ const Keyboard = () => {
           handleLetter(letter);
       }
     },
-    [evaluate, keys, handleLetter]
+    [evaluate, keys, handleLetter, gameState]
   );
 
   useEffect(() => {

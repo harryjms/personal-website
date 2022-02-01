@@ -2,6 +2,7 @@ import React, {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -70,6 +71,23 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
       setEval(result);
     }
   }, [board, guessIndex, solution]);
+
+  // Check for game completion
+  useEffect(() => {
+    let isComplete = false;
+    evals.forEach((row) => {
+      if (!isComplete) {
+        const rowLength = row.length;
+        let correctLetters = 0;
+        row.forEach((evaluation) => {
+          if (evaluation === "correct") correctLetters++;
+        });
+
+        if (rowLength === correctLetters) isComplete = true;
+      }
+    });
+    if (isComplete) setGameState(GAME_STATE.COMPLETE);
+  }, [evals]);
 
   const rows = useMemo(() => {
     let result = [];
