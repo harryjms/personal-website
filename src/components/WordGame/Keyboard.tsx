@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { EVALS, useGameContext } from ".";
 import evaluatedLetters from "./helpers/evaluatedLetters";
 import Key from "./Key";
@@ -34,6 +34,22 @@ const Keyboard = () => {
         break;
     }
   };
+
+  useEffect(() => {
+    const listenForKey = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case "Enter":
+          handleKeyPress("↵");
+          break;
+        default:
+          handleKeyPress(e.key);
+      }
+    };
+    window.addEventListener("keyup", listenForKey);
+    return () => {
+      window.removeEventListener("keyup", listenForKey);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col gap-1">
