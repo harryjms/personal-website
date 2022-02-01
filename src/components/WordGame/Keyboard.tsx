@@ -4,7 +4,7 @@ import evaluatedLetters from "./helpers/evaluatedLetters";
 import Key from "./Key";
 
 const Keyboard = () => {
-  const { solution, board, evals, evaluate } = useGameContext();
+  const { solution, board, evals, evaluate, handleLetter } = useGameContext();
   const keys = [
     ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
     ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
@@ -35,9 +35,11 @@ const Keyboard = () => {
         case "↵":
           evaluate();
           break;
+        default:
+          handleLetter(letter);
       }
     },
-    [evaluate, keys]
+    [evaluate, keys, handleLetter]
   );
 
   useEffect(() => {

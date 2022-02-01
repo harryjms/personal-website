@@ -19,6 +19,7 @@ interface IGameContext {
   board: string[];
   evals: EVALS[][];
   evaluate: () => void;
+  handleLetter: (letter: string) => void;
 }
 
 const GameContext = createContext<IGameContext>({
@@ -26,6 +27,7 @@ const GameContext = createContext<IGameContext>({
   board: [],
   evals: [],
   evaluate: () => {},
+  handleLetter: () => {},
 });
 
 export const useGameContext = () => useContext(GameContext);
@@ -68,8 +70,27 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
     return result;
   }, [solution, board, evals]);
 
+  const handleLetter = useCallback(
+    (letter: string) => {
+      const guessIndex = evals.length;
+      if (/[A-Za-z]/.test(letter)) {
+        setBoard((state) => {
+          if (state[guessIndex] && state[guessIndex].length === solution.length)
+            return state;
+          let newBoard = [...state];
+          let guess = newBoard[guessIndex] || "";
+          newBoard[guessIndex] = guess + letter;
+          return newBoard;
+        });
+      }
+    },
+    [solution, evals]
+  );
+
   return (
-    <GameContext.Provider value={{ solution, board, evals, evaluate }}>
+    <GameContext.Provider
+      value={{ solution, board, evals, evaluate, handleLetter }}
+    >
       <div className="flex flex-col w-full max-w-[400px] mx-auto h-full">
         <div className="flex flex-col gap-2 mb-4 flex-1">{rows}</div>
         <Keyboard />
