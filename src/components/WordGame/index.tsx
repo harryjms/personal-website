@@ -7,6 +7,7 @@ import React, {
   useState,
 } from "react";
 import Complete from "./Complete";
+import { loadProgress, saveProgress } from "./helpers/gameProgress";
 import Keyboard from "./Keyboard";
 import Row from "./Row";
 
@@ -50,6 +51,19 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
   const [gameState, setGameState] = useState<GAME_STATE>(
     GAME_STATE.IN_PROGRESS
   );
+
+  // Load from saved progress
+  useEffect(() => {
+    const data = loadProgress();
+    if (data) {
+      const { board, evaluations, gameState, solution: savedSolution } = data;
+      if (savedSolution === solution) {
+        setBoard(board);
+        setEval(evaluations);
+        setGameState(gameState);
+      }
+    }
+  }, [solution]);
 
   const guessIndex = useMemo(() => evals.length, [evals]);
 
@@ -138,6 +152,11 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
       return newBoard;
     });
   }, [guessIndex]);
+
+  // Save progress
+  useEffect(() => {
+    saveProgress({ board, evaluations: evals, gameState, solution });
+  }, [board, evals, gameState, solution]);
 
   return (
     <GameContext.Provider
