@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { EVALS, useGameContext } from ".";
 import evaluatedLetters from "./helpers/evaluatedLetters";
 import Key from "./Key";
@@ -27,15 +27,18 @@ const Keyboard = () => {
     );
   }, [solution, board, evals, keys]);
 
-  const handleKeyPress = (letter: string) => {
-    const allowedKeys = keys.flatMap((k) => k);
-    if (!allowedKeys.includes(letter)) return;
-    switch (letter) {
-      case "↵":
-        evaluate();
-        break;
-    }
-  };
+  const handleKeyPress = useCallback(
+    (letter: string) => {
+      const allowedKeys = keys.flatMap((k) => k);
+      if (!allowedKeys.includes(letter)) return;
+      switch (letter) {
+        case "↵":
+          evaluate();
+          break;
+      }
+    },
+    [evaluate, keys]
+  );
 
   useEffect(() => {
     const listenForKey = (e: KeyboardEvent) => {
@@ -54,7 +57,7 @@ const Keyboard = () => {
     return () => {
       window.removeEventListener("keyup", listenForKey);
     };
-  }, []);
+  }, [handleKeyPress]);
 
   return (
     <div className="flex flex-col gap-1">
