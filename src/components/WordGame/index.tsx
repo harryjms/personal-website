@@ -31,7 +31,7 @@ const GameContext = createContext<IGameContext>({
 export const useGameContext = () => useContext(GameContext);
 
 const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
-  const [board, setBoard] = useState<string[]>(["those"]);
+  const [board, setBoard] = useState<string[]>([]);
   const [evals, setEval] = useState<EVALS[][]>([]);
 
   const evaluate = useCallback(() => {
