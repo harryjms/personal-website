@@ -1,4 +1,10 @@
-import React, { useMemo, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 import Keyboard from "./Keyboard";
 import Row from "./Row";
 
@@ -8,25 +14,40 @@ interface IWordGameContainerProps {
   solution: string;
 }
 
-const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
-  const [board, setBoard] = useState<string[]>([]);
+interface IGameContext {
+  solution: string;
+  board: string[];
+  evals: EVALS[][];
+  evaluate: () => void;
+}
 
-  const evals = useMemo<EVALS[][]>(() => {
+const GameContext = createContext<IGameContext>({
+  solution: "",
+  board: [],
+  evals: [],
+  evaluate: () => {},
+});
+
+export const useGameContext = () => useContext(GameContext);
+
+const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
+  const [board, setBoard] = useState<string[]>(["those"]);
+  const [evals, setEval] = useState<EVALS[][]>([]);
+
+  const evaluate = useCallback(() => {
     let result = [];
-    board.forEach((row, i) => {
-      const rowResult = [];
-      for (let i = 0; i < row.length; i++) {
-        if (row[i] === solution[i]) {
-          rowResult[i] = "correct";
-        } else if (solution.includes(row[i])) {
-          rowResult[i] = "present";
-        } else {
-          rowResult[i] = "abset";
-        }
+    const latest = board[board.length - 1];
+    for (let i = 0; i < latest.length; i++) {
+      if (latest[i] === solution[i]) {
+        result.push("correct");
+      } else if (solution.includes(latest[i])) {
+        result.push("present");
+      } else {
+        result.push("absent");
       }
-      result[i] = rowResult;
-    });
-    return result;
+    }
+
+    setEval((state) => [...state, result]);
   }, [board, solution]);
 
   const rows = useMemo(() => {
@@ -45,10 +66,12 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
   }, [solution, board, evals]);
 
   return (
-    <div className="flex flex-col w-full max-w-[400px] mx-auto h-full">
-      <div className="flex flex-col gap-2 mb-4 flex-1">{rows}</div>
-      <Keyboard />
-    </div>
+    <GameContext.Provider value={{ solution, board, evals, evaluate }}>
+      <div className="flex flex-col w-full max-w-[400px] mx-auto h-full">
+        <div className="flex flex-col gap-2 mb-4 flex-1">{rows}</div>
+        <Keyboard />
+      </div>
+    </GameContext.Provider>
   );
 };
 

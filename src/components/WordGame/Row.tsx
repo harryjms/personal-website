@@ -21,7 +21,7 @@ const Row: React.FC<IRowProps> = ({ squares, value, evaluations }) => {
       );
     }
     return result;
-  }, [squares]);
+  }, [squares, evaluations, value]);
   return <div className="flex gap-2">{renderRow}</div>;
 };
 
