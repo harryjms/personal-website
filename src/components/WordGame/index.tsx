@@ -20,6 +20,7 @@ interface IGameContext {
   evals: EVALS[][];
   evaluate: () => void;
   handleLetter: (letter: string) => void;
+  handleBackspace: () => void;
 }
 
 const GameContext = createContext<IGameContext>({
@@ -28,6 +29,7 @@ const GameContext = createContext<IGameContext>({
   evals: [],
   evaluate: () => {},
   handleLetter: () => {},
+  handleBackspace: () => {},
 });
 
 export const useGameContext = () => useContext(GameContext);
@@ -87,9 +89,27 @@ const WordGameContainer: React.FC<IWordGameContainerProps> = ({ solution }) => {
     [solution, evals]
   );
 
+  const handleBackspace = useCallback(() => {
+    setBoard((state) => {
+      const guessIndex = evals.length;
+      let newBoard = [...state];
+      let guess = newBoard[guessIndex];
+      newBoard[guessIndex] = guess.slice(0, -1);
+
+      return newBoard;
+    });
+  }, [evals]);
+
   return (
     <GameContext.Provider
-      value={{ solution, board, evals, evaluate, handleLetter }}
+      value={{
+        solution,
+        board,
+        evals,
+        evaluate,
+        handleLetter,
+        handleBackspace,
+      }}
     >
       <div className="flex flex-col w-full max-w-[400px] mx-auto h-full">
         <div className="flex flex-col gap-2 mb-4 flex-1">{rows}</div>
