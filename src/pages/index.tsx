@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Socials from "../components/Socials";
 const Homepage = () => {
   return (
     <>
@@ -16,6 +17,9 @@ const Homepage = () => {
         <p>
           I am a Senior Software Engineer living in London and working at the
           BBC on products that help power radio.
+        </p>
+        <p className="mt-8">
+          <Socials />
         </p>
       </main>
     </>
