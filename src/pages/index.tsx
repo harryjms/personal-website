@@ -14,9 +14,9 @@ const Homepage = () => {
           eventually, but for now it's just a landing page.
         </p>
         <h2>About me</h2>
+        <p>I am a Software Engineer at Citymapper.</p>
         <p>
-          I am a Senior Software Engineer living in London and working at the
-          BBC on products that help power radio.w
+          Previously, I was a Software Engineer at the BBC and Nectar Loyalty.
         </p>
         <p className="mt-8">
           <Socials />
