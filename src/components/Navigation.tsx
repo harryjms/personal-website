@@ -1,5 +1,4 @@
 import { useRouter } from "next/dist/client/router";
-import React from "react";
 import NavLink from "./NavLink";
 
 const Navigation = () => {
@@ -9,9 +8,13 @@ const Navigation = () => {
       path: "/",
       label: "Home",
     },
+    {
+      path: "/cv",
+      label: "CV",
+    },
   ];
   return (
-    <nav className="container flex gap-4">
+    <nav className="container flex gap-4 print:hidden">
       {links.map((link) => {
         return (
           <NavLink to={link.path} key={link.path}>

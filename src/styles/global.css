@@ -22,10 +22,31 @@
   }
 
   h1 {
-    @apply text-6xl font-black my-4 sm:my-8;
+    @apply text-3xl md:text-6xl font-black my-4 sm:my-8;
   }
+
   h2 {
-    @apply text-2xl font-extrabold mt-4;
+    @apply text-xl md:text-3xl font-extrabold mt-4;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-bold mt-2;
+  }
+
+  section {
+    @apply mt-8;
+  }
+
+  section p {
+    @apply text-justify;
+  }
+
+  section .company {
+    @apply font-bold;
+  }
+
+  section .time {
+    @apply text-sm;
   }
 
   p {
