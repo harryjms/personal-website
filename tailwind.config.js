@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       colors: {
         citymapper: "#2dc922",
+        dent: "#007fff",
       },
     },
     container: {

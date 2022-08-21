@@ -1,4 +1,3 @@
-import React from "react";
 import Head from "next/head";
 import Socials from "../components/Socials";
 const Homepage = () => {
@@ -15,14 +14,14 @@ const Homepage = () => {
         </p>
         <p>
           I am a Software Engineer at{" "}
-          <span className="text-citymapper hover:underline">
-            <a href="https://citymapper.com" target="_blank">
-              Citymapper
+          <span className="text-dent hover:underline">
+            <a href="https://dentreality.com" target="_blank">
+              Dent Reality
             </a>
           </span>
           .
         </p>
-        <p>Previously, I was a Senior Software Engineer at the BBC.</p>
+        <p>Previously, I was a Software Engineer at the BBC and Citymapper.</p>
         <p className="mt-8">
           <Socials />
         </p>
