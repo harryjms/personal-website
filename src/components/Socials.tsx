@@ -1,6 +1,7 @@
 import {
   faGithub,
   faLinkedin,
+  faMastodon,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,6 +31,7 @@ const Socials = () => {
       >
         <FontAwesomeIcon icon={faLinkedin} title="LinkedIn" />
       </a>
+      <a rel="me" href="https://mastodon.online/@harryjms"><FontAwesomeIcon icon={faMastodon} title="Mastodon" /></a>
     </div>
   );
 };
