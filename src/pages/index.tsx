@@ -6,22 +6,16 @@ const Homepage = () => {
       <Head>
         <title>Harry</title>
       </Head>
-      <main>
+      <main className="container">
         <h1>Hello, I'm Harry.</h1>
+        <p>Welcome to my corner of the internet!</p>
         <p>
-          Welcome to my little corner of the internet. I'll add some stuff here
-          eventually, but for now it's just a landing page.
-        </p>
-        <p>
-          I am a Software Engineer at{" "}
-          <span className="text-dent hover:underline">
-            <a href="https://dentreality.com" target="_blank">
-              Dent Reality
-            </a>
-          </span>
+          I am a Software Engineer currently working at the AR startup{" "}
+          <a href="https://dentreality.com" target="_blank">
+            Dent Reality
+          </a>
           .
         </p>
-        <p>Previously, I was a Software Engineer at the BBC and Citymapper.</p>
         <p className="mt-8">
           <Socials />
         </p>
