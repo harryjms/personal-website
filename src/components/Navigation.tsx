@@ -8,7 +8,7 @@ const Navigation = () => {
       path: "/",
       label: "Home",
     },
-    { path: "/career", label: "My career" },
+    { path: "/resume", label: "Resume" },
   ];
   return (
     <nav className="container flex gap-4 print:hidden">
