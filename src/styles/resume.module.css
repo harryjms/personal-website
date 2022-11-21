@@ -1,0 +1,15 @@
+.header h1 {
+  @apply pb-0 mb-0;
+}
+
+.page {
+  @apply print:w-[210mm] lg:w-[210mm];
+}
+
+.page h3 {
+  @apply font-bold uppercase tracking-wide mb-2;
+}
+
+.page .technologies .blocks {
+  @apply flex;
+}
