@@ -38,6 +38,11 @@ const Resume = () => {
             a team of like minded people, working on interesting and challenging
             projects.
           </p>
+          <p>
+            Public examples of my work can be found at{" "}
+            <a href="https://harryjms.uk">harryjms.uk</a> and{" "}
+            <a href="https://tuckshopuk.com">tuckshopuk.com</a>
+          </p>
         </section>
         <section className="technologies">
           <h3>Technologies</h3>
