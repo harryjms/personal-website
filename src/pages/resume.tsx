@@ -149,7 +149,7 @@ const Resume = () => {
           <ol className="relative pl-1 print:pl-0">
             <ResumeTimelineItem
               jobTitle="Software Engineer"
-              company="Dent Reality"
+              company="Hyper AR"
               dates="Aug 2022 - Present"
               first
             >
