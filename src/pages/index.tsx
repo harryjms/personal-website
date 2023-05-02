@@ -12,8 +12,8 @@ const Homepage = () => {
         <div className="bio">
           <p>
             I am a Software Engineer currently working at the AR startup{" "}
-            <a href="https://dentreality.com" target="_blank">
-              Dent Reality
+            <a href="https://hyperar.com" target="_blank">
+              Hyper AR
             </a>
             .
           </p>
