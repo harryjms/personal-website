@@ -1,5 +1,6 @@
 import Head from "next/dist/shared/lib/head";
 import ResumeTechnologiesGrid from "../components/ResumeTechnologiesGrid";
+import ResumeTechnologiesGroup from "../components/ResumeTechnologiesGroup";
 import ResumeTechnologiesItem from "../components/ResumeTechnologiesItem";
 import ResumeTimelineItem from "../components/ResumeTimelineItem";
 import styles from "../styles/resume.module.css";
@@ -52,101 +53,115 @@ const Resume = () => {
           <section className="technologies">
             <h3>Technologies</h3>
             <ResumeTechnologiesGrid>
-              <ResumeTechnologiesItem
-                image="/assets/react.png"
-                name="React"
-                time="5 yrs"
-                group={ResumeGroups.ui}
-              />
-              <ResumeTechnologiesItem
-                image="/assets/sass.png"
-                name="SASS"
-                time="5 yrs"
-                group={ResumeGroups.ui}
-              />
-              <ResumeTechnologiesItem
-                image="/assets/nextjs.png"
-                name="NextJS"
-                time="2 yrs"
-                group={ResumeGroups.ui}
-              />
+              <ResumeTechnologiesGroup name="UI">
+                <ResumeTechnologiesItem
+                  image="/assets/react.png"
+                  name="React"
+                  time="5 yrs"
+                  group={ResumeGroups.ui}
+                />
+                <ResumeTechnologiesItem
+                  image="/assets/sass.png"
+                  name="SASS"
+                  time="5 yrs"
+                  group={ResumeGroups.ui}
+                />
+                <ResumeTechnologiesItem
+                  image="/assets/nextjs.png"
+                  name="NextJS"
+                  time="2 yrs"
+                  group={ResumeGroups.ui}
+                />
+              </ResumeTechnologiesGroup>
+              <ResumeTechnologiesGroup name="API/Backend">
+                <ResumeTechnologiesItem
+                  image="/assets/express-js.png"
+                  name="ExpressJS"
+                  time="5 yr"
+                  group={ResumeGroups.api}
+                />
+                <ResumeTechnologiesItem
+                  image="/assets/java.png"
+                  name="Java"
+                  time="3 yrs"
+                  group={ResumeGroups.api}
+                />
+                <ResumeTechnologiesItem
+                  image="/assets/nestjs.png"
+                  name="NestJS"
+                  time="1 yr"
+                  group={ResumeGroups.api}
+                />
+              </ResumeTechnologiesGroup>
+              <ResumeTechnologiesGroup name="Testing">
+                <ResumeTechnologiesItem
+                  image="/assets/jest.png"
+                  name="Jest"
+                  time="4 yrs"
+                  group={ResumeGroups.testing}
+                />
+                <ResumeTechnologiesItem
+                  image="/assets/rtl.png"
+                  name="Enzyme/RTL"
+                  time="4 yrs"
+                  group={ResumeGroups.testing}
+                />
+              </ResumeTechnologiesGroup>
 
-              <ResumeTechnologiesItem
-                image="/assets/java.png"
-                name="Java"
-                time="3 yrs"
-                group={ResumeGroups.api}
-              />
-              <ResumeTechnologiesItem
-                image="/assets/nestjs.png"
-                name="NestJS"
-                time="1 yr"
-                group={ResumeGroups.api}
-              />
-
-              <ResumeTechnologiesItem
-                image="/assets/jest.png"
-                name="Jest"
-                time="4 yrs"
-                group={ResumeGroups.testing}
-              />
-              <ResumeTechnologiesItem
-                image="/assets/rtl.png"
-                name="Enzyme/RTL"
-                time="4 yrs"
-                group={ResumeGroups.testing}
-              />
-
-              <ResumeTechnologiesItem
-                image="/assets/typescript.png"
-                name="Typescript"
-                time="4 yrs"
-                group={ResumeGroups.tooling}
-              />
-              <ResumeTechnologiesItem
-                image="/assets/webpack.svg"
-                name="Webpack"
-                time="5 yrs"
-                group={ResumeGroups.tooling}
-              />
-              <ResumeTechnologiesItem
-                image="/assets/eslint.png"
-                name="ESLint"
-                time="5 yrs"
-                group={ResumeGroups.tooling}
-              />
-
-              <ResumeTechnologiesItem
-                image="/assets/gha.png"
-                name="GitHub Actions"
-                time="1 yrs"
-                group={ResumeGroups.devops}
-              />
-              <ResumeTechnologiesItem
-                image="/assets/jenkins.png"
-                name="Jenkins"
-                time="4 yrs"
-                group={ResumeGroups.devops}
-              />
-              <ResumeTechnologiesItem
-                image="/assets/terraform.png"
-                name="Terraform"
-                time="6 mths"
-                group={ResumeGroups.devops}
-              />
-              <ResumeTechnologiesItem
-                image="/assets/docker.png"
-                name="Docker"
-                time="4 yrs"
-                group={ResumeGroups.devops}
-              />
-              <ResumeTechnologiesItem
-                image="/assets/aws.png"
-                name="AWS Lambda, S3, EC2, IAM, Beanstalk, Cloudwatch"
-                time="4 yrs"
-                doubleWidth
-                group={ResumeGroups.devops}
-              />
+              <ResumeTechnologiesGroup name="Tooling">
+                <ResumeTechnologiesItem
+                  image="/assets/typescript.png"
+                  name="Typescript"
+                  time="4 yrs"
+                  group={ResumeGroups.tooling}
+                />
+                <ResumeTechnologiesItem
+                  image="/assets/webpack.svg"
+                  name="Webpack"
+                  time="5 yrs"
+                  group={ResumeGroups.tooling}
+                />
+                <ResumeTechnologiesItem
+                  image="/assets/eslint.png"
+                  name="ESLint"
+                  time="5 yrs"
+                  group={ResumeGroups.tooling}
+                />
+              </ResumeTechnologiesGroup>
+              <ResumeTechnologiesGroup name="CI/CD">
+                <ResumeTechnologiesItem
+                  image="/assets/gha.png"
+                  name="GitHub Actions"
+                  time="1 yrs"
+                  group={ResumeGroups.devops}
+                />
+                <ResumeTechnologiesItem
+                  image="/assets/jenkins.png"
+                  name="Jenkins"
+                  time="4 yrs"
+                  group={ResumeGroups.devops}
+                />
+              </ResumeTechnologiesGroup>
+              <ResumeTechnologiesGroup name="Infrastructure">
+                <ResumeTechnologiesItem
+                  image="/assets/terraform.png"
+                  name="Terraform"
+                  time="6 mths"
+                  group={ResumeGroups.devops}
+                />
+                <ResumeTechnologiesItem
+                  image="/assets/docker.png"
+                  name="Docker"
+                  time="4 yrs"
+                  group={ResumeGroups.devops}
+                />
+                <ResumeTechnologiesItem
+                  image="/assets/aws.png"
+                  name="AWS Lambda, S3, EC2, IAM, Beanstalk, Cloudwatch"
+                  time="4 yrs"
+                  group={ResumeGroups.devops}
+                />
+              </ResumeTechnologiesGroup>
             </ResumeTechnologiesGrid>
           </section>
           <section className="experience">

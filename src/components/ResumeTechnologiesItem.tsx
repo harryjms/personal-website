@@ -35,7 +35,7 @@ const ResumeTechnologiesItem: React.FC<ResumeTechnologiesItemProps> = ({
   return (
     <div
       className={
-        "flex flex-col items-center print:items-start justify-center p-2 print:p-0 bg-gray-100 dark:bg-slate-800 print:bg-transparent rounded-md font-bold text-sm" +
+        "flex flex-col items-center print:items-start justify-center p-2 print:p-0 bg-gray-100 dark:bg-slate-800 print:bg-transparent rounded-md font-bold text-sm text-center print:text-left" +
         (doubleWidth ? " col-span-2" : "")
       }
     >
@@ -43,7 +43,7 @@ const ResumeTechnologiesItem: React.FC<ResumeTechnologiesItemProps> = ({
         <img src={image} className="print:hidden h-[32px] my-1" />
       ) : null}
       {name}
-      <div className="text-gray-400 font-normal text-xs mb-1">
+      <div className="text-gray-400 font-normal text-xs print:mb-1">
         {time} experience
       </div>
       <div
