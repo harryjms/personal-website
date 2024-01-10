@@ -37,7 +37,7 @@ const ResumeTimelineItem: React.FC<
         </div>
         <div className="text-sm">{dates}</div>
       </div>
-      <p className="text-justify">{children}</p>
+      <p className="text-justify ">{children}</p>
     </li>
   );
 };

@@ -27,7 +27,7 @@ const Resume = () => {
           <div className={styles.header}>
             <h1 className="print:hidden">Resume</h1>
             <h1 className="hidden print:block mt-4">Harry Jarman</h1>
-            <h2>Software Engineer</h2>
+            <h2>Software Engineer Team Lead</h2>
             {showContact ? (
               <div>
                 {process.env.NEXT_PUBLIC_EMAIL}
@@ -46,11 +46,6 @@ const Resume = () => {
               maintaining a motivating and relaxed environment, enabling people
               to deliver their best work and grow their skills to move forward
               in their careers.
-            </p>
-            <p>
-              Public examples of my work can be found at{" "}
-              <a href="https://harryjms.uk">harryjms.uk</a> and{" "}
-              <a href="https://tuckshopuk.com">tuckshopuk.com</a>.
             </p>
           </section>
           <section className="technologies">
