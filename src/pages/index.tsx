@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Socials from "../components/Socials";
-const Homepage = () => {
+const Homepage = ({ isApple }) => {
   return (
     <>
       <Head>
@@ -11,16 +11,20 @@ const Homepage = () => {
         <p>Welcome to my corner of the internet!</p>
         <div className="bio">
           <p>
-            I am a Software Engineer currently working at the AR startup{" "}
+            {isApple ? <>Ex-Apple Genius turned</> : <>I am a</>} Software
+            Engineer Team Lead currently working at the AR startup{" "}
             <a href="https://hyperar.com" target="_blank">
               Hyper AR
             </a>
             .
           </p>
           <p>
-            Spend my time writing ReactJS in Typescript, tested using Jest/RTL.
-            Currently spending time learning the world of Kubernetes and
-            Terraform.
+            Spend my time writing ReactJS in Typescript, tested using Jest/RTL
+            calling an API built with NestJS + MongoDB database.
+          </p>
+          <p>
+            I am passionate about enriching people's lives through thoughtful
+            use of technology, making products that are reliable and accessible.
           </p>
           <p>
             Geeky level of interest in Radio, specifically BBC Radio 1, and
@@ -28,14 +32,7 @@ const Homepage = () => {
             <a href="https://www.backtothefuturemusical.com/" target="_blank">
               Back to the Future the Musical
             </a>{" "}
-            6 times, and counting 🙈.
-          </p>
-          <p>
-            The{" "}
-            <a href="https://tuckshopuk.com" target="_blank">
-              TuckShop website
-            </a>{" "}
-            is my side hustle.
+            7 times, and counting 🙈.
           </p>
         </div>
         <p className="mt-8">
@@ -45,5 +42,17 @@ const Homepage = () => {
     </>
   );
 };
+
+export function getServerSideProps({ req }) {
+  const forwarded = req.headers["x-forwarded-for"];
+  const ip = forwarded
+    ? forwarded.split(/, /)[0]
+    : req.connection.remoteAddress;
+  return {
+    props: {
+      isApple: ip.startsWith("17."),
+    },
+  };
+}
 
 export default Homepage;

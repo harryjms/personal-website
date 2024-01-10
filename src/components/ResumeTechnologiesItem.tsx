@@ -2,13 +2,15 @@ import React, { useMemo } from "react";
 
 import { ResumeGroups } from "../pages/resume";
 
-interface ResumeTechnologiesItemProps {
+type ResumeTechnologiesItemProps = {
   image?: string;
   name: string;
   group: ResumeGroups;
-  time: string;
   doubleWidth?: boolean;
-}
+} & (
+  | { time: string; learning?: undefined }
+  | { time?: undefined; learning: true }
+);
 
 const ResumeTechnologiesItem: React.FC<ResumeTechnologiesItemProps> = ({
   image,
@@ -16,6 +18,7 @@ const ResumeTechnologiesItem: React.FC<ResumeTechnologiesItemProps> = ({
   group,
   time,
   doubleWidth,
+  learning,
 }) => {
   const groupColor = useMemo(() => {
     switch (group) {
@@ -44,7 +47,7 @@ const ResumeTechnologiesItem: React.FC<ResumeTechnologiesItemProps> = ({
       ) : null}
       {name}
       <div className="text-gray-400 font-normal text-xs print:mb-1">
-        {time} experience
+        {learning ? "Actively learning" : <>{time} experience</>}
       </div>
       <div
         className={`hidden text-[0.7em] uppercase font-normal top-0 left-0 rounded-full px-[8px] py-[1px] ${groupColor}`}

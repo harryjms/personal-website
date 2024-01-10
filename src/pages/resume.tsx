@@ -57,19 +57,25 @@ const Resume = () => {
                 <ResumeTechnologiesItem
                   image="/assets/react.png"
                   name="React"
-                  time="5 yrs"
-                  group={ResumeGroups.ui}
-                />
-                <ResumeTechnologiesItem
-                  image="/assets/sass.png"
-                  name="SASS"
-                  time="5 yrs"
+                  time="5+ yrs"
                   group={ResumeGroups.ui}
                 />
                 <ResumeTechnologiesItem
                   image="/assets/nextjs.png"
                   name="NextJS"
-                  time="2 yrs"
+                  time="3 yrs"
+                  group={ResumeGroups.ui}
+                />
+                <ResumeTechnologiesItem
+                  image="/assets/sass.png"
+                  name="SASS"
+                  time="5+ yrs"
+                  group={ResumeGroups.ui}
+                />
+                <ResumeTechnologiesItem
+                  image="/assets/tailwind.svg"
+                  name="Tailwind"
+                  time="1 yrs"
                   group={ResumeGroups.ui}
                 />
               </ResumeTechnologiesGroup>
@@ -77,7 +83,7 @@ const Resume = () => {
                 <ResumeTechnologiesItem
                   image="/assets/express-js.png"
                   name="ExpressJS"
-                  time="5 yr"
+                  time="5+ yr"
                   group={ResumeGroups.api}
                 />
                 <ResumeTechnologiesItem
@@ -89,7 +95,7 @@ const Resume = () => {
                 <ResumeTechnologiesItem
                   image="/assets/nestjs.png"
                   name="NestJS"
-                  time="1 yr"
+                  time="1.5 yr"
                   group={ResumeGroups.api}
                 />
               </ResumeTechnologiesGroup>
@@ -97,13 +103,13 @@ const Resume = () => {
                 <ResumeTechnologiesItem
                   image="/assets/jest.png"
                   name="Jest"
-                  time="4 yrs"
+                  time="5+ yrs"
                   group={ResumeGroups.testing}
                 />
                 <ResumeTechnologiesItem
                   image="/assets/rtl.png"
                   name="Enzyme/RTL"
-                  time="4 yrs"
+                  time="5+ yrs"
                   group={ResumeGroups.testing}
                 />
               </ResumeTechnologiesGroup>
@@ -112,19 +118,19 @@ const Resume = () => {
                 <ResumeTechnologiesItem
                   image="/assets/typescript.png"
                   name="Typescript"
-                  time="4 yrs"
+                  time="5+ yrs"
                   group={ResumeGroups.tooling}
                 />
                 <ResumeTechnologiesItem
                   image="/assets/webpack.svg"
                   name="Webpack"
-                  time="5 yrs"
+                  time="5+ yrs"
                   group={ResumeGroups.tooling}
                 />
                 <ResumeTechnologiesItem
                   image="/assets/eslint.png"
                   name="ESLint"
-                  time="5 yrs"
+                  time="5+ yrs"
                   group={ResumeGroups.tooling}
                 />
               </ResumeTechnologiesGroup>
@@ -132,7 +138,7 @@ const Resume = () => {
                 <ResumeTechnologiesItem
                   image="/assets/gha.png"
                   name="GitHub Actions"
-                  time="1 yrs"
+                  time="2 yrs"
                   group={ResumeGroups.devops}
                 />
                 <ResumeTechnologiesItem
@@ -146,18 +152,18 @@ const Resume = () => {
                 <ResumeTechnologiesItem
                   image="/assets/terraform.png"
                   name="Terraform"
-                  time="6 mths"
+                  learning
                   group={ResumeGroups.devops}
                 />
                 <ResumeTechnologiesItem
                   image="/assets/docker.png"
                   name="Docker"
-                  time="4 yrs"
+                  time="5+ yrs"
                   group={ResumeGroups.devops}
                 />
                 <ResumeTechnologiesItem
                   image="/assets/aws.png"
-                  name="AWS Lambda, S3, EC2, IAM, Beanstalk, Cloudwatch"
+                  name="AWS"
                   time="4 yrs"
                   group={ResumeGroups.devops}
                 />
@@ -168,12 +174,31 @@ const Resume = () => {
             <h3>Experience</h3>
             <ol className="relative pl-1 print:pl-0">
               <ResumeTimelineItem
-                jobTitle="Software Engineer"
+                jobTitle="Software Engineer Team Lead"
                 company="Hyper AR"
-                dates="Aug 2022 - Present"
+                dates="Aug 2023 - Present"
                 first
               >
-                As part of the three person web team, I have delivered new
+                Reponsible for leading the platform team in creating our
+                web-based map building tools. Conduct one-to-ones to ensure team
+                are happy, motivated and equipped with everything they need to
+                excel and recruiting new members of the team to ensure we are
+                properly resourced. Work closely with our product manager to
+                create our roadmap of work inline with business goals and the
+                needs of our mobile team, adapting the roadmap as obstacles
+                arise. Since taking up the role, the team has become more
+                efficient, delivering new features and fixing bugs quicker and
+                more reliably then before. I have also focussed on keeping the
+                wider business up-to-date with our progress and when new
+                releases are available.
+              </ResumeTimelineItem>
+              <ResumeTimelineItem
+                jobTitle="Software Engineer"
+                company="Hyper AR"
+                dates="Aug 2022 - Aug 2023"
+                first
+              >
+                As part of the three person platform team, I have delivered new
                 features to the ReactJS web portal, built in Typescript and
                 utilising the Mapbox library for drawing new GeoJSON features.
                 As I work within a small team, we are full stack developers,

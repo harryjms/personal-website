@@ -22,7 +22,7 @@ const ResumeTimelineItem: React.FC<
   }, [first, last]);
 
   return (
-    <li className="relative pl-2 print:pl-0">
+    <li className="relative pl-4 print:pl-0 pb-4 print:pb-0 last:pb-0">
       <div
         className={
           "print:hidden absolute -left-[4px] " +
@@ -30,7 +30,7 @@ const ResumeTimelineItem: React.FC<
           " w-[4px] bg-slate-500 dark:bg-white"
         }
       />
-      <div className="print:hidden absolute rounded-full top-[8px] -left-[7px] circle bg-blue-500 w-[10px] h-[10px] block" />
+      <div className="print:hidden absolute rounded-full top-[8px] -left-[7px] circle bg-violet-500 ring-2 ring-violet-300 w-[10px] h-[10px] block" />
       <div>
         <div className="font-bold">
           {jobTitle}, {company}

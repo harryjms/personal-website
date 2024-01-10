@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply dark:bg-black dark:text-white;
+    @apply dark:bg-gradient-to-br dark:from-slate-900 dark:to-violet-900 dark:text-white bg-fixed;
   }
 
   .bio {
@@ -36,11 +36,11 @@
   }
 
   main a {
-    @apply text-dent hover:underline;
+    @apply text-violet-400 hover:underline;
   }
 
   h1 {
-    @apply text-6xl font-black  md:-ml-5 -mt-4 md:pl-5 md:pb-4 pb-2 my-4 sm:my-8 text-left sticky top-0 z-10 bg-white dark:bg-black;
+    @apply text-6xl font-black  md:-ml-5 -mt-4 md:pl-5 md:pb-4 pb-2 my-4 sm:my-8 text-left z-10;
   }
 
   h2 {
