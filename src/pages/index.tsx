@@ -12,7 +12,8 @@ const Homepage = ({ isApple }) => {
         <div className="bio">
           <p>
             {isApple ? <>Ex-Apple Genius turned</> : <>I am a</>} Software
-            Engineer Team Lead currently working at the AR startup{" "}
+            Engineer Team Lead based in Manchester, currently working at the AR
+            startup{" "}
             <a href="https://hyperar.com" target="_blank">
               Hyper AR
             </a>

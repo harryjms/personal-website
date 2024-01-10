@@ -42,12 +42,15 @@ const Resume = () => {
               A driven, approachable, intelligent individual who is keen to
               continue building upon skills learned so far in their career
               within a team of like minded people, working on interesting and
-              challenging projects.
+              challenging projects. As a manager I am devoted to creating and
+              maintaining a motivating and relaxed environment, enabling people
+              to deliver their best work and grow their skills to move forward
+              in their careers.
             </p>
             <p>
               Public examples of my work can be found at{" "}
               <a href="https://harryjms.uk">harryjms.uk</a> and{" "}
-              <a href="https://tuckshopuk.com">tuckshopuk.com</a>
+              <a href="https://tuckshopuk.com">tuckshopuk.com</a>.
             </p>
           </section>
           <section className="technologies">
