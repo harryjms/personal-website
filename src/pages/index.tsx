@@ -33,7 +33,7 @@ const Homepage = ({ isApple }) => {
             <a href="https://www.backtothefuturemusical.com/" target="_blank">
               Back to the Future the Musical
             </a>{" "}
-            7 times, and counting 🙈.
+            9 times, and counting 🙈.
           </p>
         </div>
         <p className="mt-8">
