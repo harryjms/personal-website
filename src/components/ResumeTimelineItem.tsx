@@ -30,7 +30,7 @@ const ResumeTimelineItem: React.FC<
           " w-[4px] bg-slate-500 dark:bg-white"
         }
       />
-      <div className="print:hidden absolute rounded-full top-[8px] -left-[7px] circle bg-violet-500 ring-2 ring-violet-300 w-[10px] h-[10px] block" />
+      <div className="print:hidden absolute rounded-full top-[8px] -left-[7px] circle bg-green-500 ring-2 ring-green-300 w-[10px] h-[10px] block" />
       <div>
         <div className="font-bold">
           {jobTitle}, {company}

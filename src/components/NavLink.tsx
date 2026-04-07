@@ -10,14 +10,14 @@ const NavLink: React.FC<{ to: string }> = ({ to, children }) => {
       <div
         className={combineClasses(
           "inline relative font-black transition-colors",
-          router.pathname === to ? "text-violet-400" : "hover:text-violet-400"
+          router.pathname === to ? "text-green-400" : "hover:text-green-400",
         )}
       >
         <Link href={to}>{children}</Link>
         <div
           className={combineClasses(
-            "absolute left-0 -bottom-[3px] h-[4px] bg-violet-400  transition-all",
-            router.pathname === to ? "w-full" : "w-0"
+            "absolute left-0 -bottom-[3px] h-[4px] bg-green-400  transition-all",
+            router.pathname === to ? "w-full" : "w-0",
           )}
         />
       </div>

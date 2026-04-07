@@ -27,7 +27,7 @@ const Resume = () => {
           <div className={styles.header}>
             <h1 className="print:hidden">Resume</h1>
             <h1 className="hidden print:block mt-4">Harry Jarman</h1>
-            <h2>Software Engineer Team Lead</h2>
+            <h2>Tech Lead</h2>
             {showContact ? (
               <div>
                 {process.env.NEXT_PUBLIC_EMAIL}
@@ -172,10 +172,29 @@ const Resume = () => {
             <h3>Experience</h3>
             <ol className="relative pl-1 print:pl-0">
               <ResumeTimelineItem
+                jobTitle="Tech Lead"
+                company="Corporation Pop"
+                dates="Mar 2024 - Present"
+                first
+              >
+                Leading the technical decisions and overall direction of the
+                company and projects. I work closely with the project manager,
+                designers and other engineers to ensure we are building the
+                right thing and doing so in the right way and as efficiently as
+                possible.
+                <br />
+                <br />
+                Our response to incidents and outages has been streamlined
+                through the introduction of tooling such as Incident IO and
+                Grafana Dashboards.
+                <br />
+                <br />I have implemented improved IT security processes such as
+                the roll out of an MDM solution and Google SSO where possible.
+              </ResumeTimelineItem>
+              <ResumeTimelineItem
                 jobTitle="Software Engineer Team Lead"
                 company="Hyper AR"
-                dates="Aug 2023 - Present"
-                first
+                dates="Aug 2023 - Mar 2024"
               >
                 Reponsible for leading the platform team in creating our
                 web-based map building tools. Conduct one-to-ones to ensure team

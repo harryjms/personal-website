@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply dark:bg-gradient-to-br dark:from-slate-900 dark:to-violet-900 dark:text-white bg-fixed;
+    @apply dark:bg-gradient-to-br dark:from-slate-900 dark:to-green-900 dark:text-white bg-fixed;
   }
 
   @media print {
@@ -44,7 +44,7 @@
   }
 
   main a {
-    @apply text-violet-400 hover:underline;
+    @apply text-green-400 hover:underline;
   }
 
   h1 {
@@ -64,7 +64,7 @@
   }
 
   button:not([aria-disabled="true"]) {
-    @apply hover:bg-blue-600;
+    @apply hover:bg-green-600;
   }
 
   button[aria-disabled="true"] {

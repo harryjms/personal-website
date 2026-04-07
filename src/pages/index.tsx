@@ -11,25 +11,23 @@ const Homepage = ({ isApple }) => {
         <p>Welcome to my corner of the internet!</p>
         <div className="bio">
           <p>
-            {isApple ? <>Ex-Apple Genius turned</> : <>I am a</>} Software
-            Engineer Team Lead based in Manchester, currently working at the AR
-            startup{" "}
-            <a href="https://hyperar.com" target="_blank">
-              Hyper AR
+            {isApple ? <>Ex-Apple Genius turned</> : <>A</>} software Tech Lead
+            based in Manchester, currently working at the digital agency,{" "}
+            <a href="https://corporationpop.co.uk" target="_blank">
+              Corporation Pop
             </a>
             .
-          </p>
-          <p>
-            Spend my time writing ReactJS in Typescript, tested using Jest/RTL
-            calling an API built with NestJS + MongoDB database.
           </p>
           <p>
             I am passionate about enriching people's lives through thoughtful
             use of technology, making products that are reliable and accessible.
           </p>
           <p>
-            Geeky level of interest in Radio, specifically BBC Radio 1, and
-            absolutely adore Sci-Fi. I've seen{" "}
+            Geeky level of interest in Radio, volunteering with{" "}
+            <a href="https://gaydio.co.uk" target="_blank">
+              Gaydio
+            </a>
+            , and absolutely adore Sci-Fi. I've seen{" "}
             <a href="https://www.backtothefuturemusical.com/" target="_blank">
               Back to the Future the Musical
             </a>{" "}

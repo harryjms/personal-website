@@ -23,7 +23,7 @@ const ResumeTechnologiesItem: React.FC<ResumeTechnologiesItemProps> = ({
   const groupColor = useMemo(() => {
     switch (group) {
       case ResumeGroups.ui:
-        return "bg-purple-400 dark:bg-purple-800 text-white";
+        return "bg-green-400 dark:bg-green-800 text-white";
       case ResumeGroups.api:
         return "bg-blue-400 dark:bg-blue-800 text-white";
       case ResumeGroups.devops:
