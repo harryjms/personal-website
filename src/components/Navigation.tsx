@@ -1,5 +1,5 @@
 import NavLink from "./NavLink";
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 
 const Navigation = () => {
   const router = useRouter();

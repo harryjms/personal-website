@@ -45,8 +45,8 @@ const Homepage = ({ isApple }) => {
 export function getServerSideProps({ req }) {
   const forwarded = req.headers["x-forwarded-for"];
   const ip = forwarded
-    ? forwarded.split(/, /)[0]
-    : req.connection.remoteAddress;
+    ? (Array.isArray(forwarded) ? forwarded[0] : forwarded).split(/, /)[0]
+    : req.socket.remoteAddress;
   return {
     props: {
       isApple: ip.startsWith("17."),

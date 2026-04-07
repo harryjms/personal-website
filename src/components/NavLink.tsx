@@ -1,9 +1,9 @@
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import React from "react";
 import combineClasses from "../utils/combineClasses";
 
-const NavLink: React.FC<{ to: string }> = ({ to, children }) => {
+const NavLink: React.FC<{ to: string; children: React.ReactNode }> = ({ to, children }) => {
   const router = useRouter();
   return (
     <div className="HomeLink mb-2">

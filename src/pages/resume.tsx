@@ -1,4 +1,4 @@
-import Head from "next/dist/shared/lib/head";
+import Head from "next/head";
 import ResumeTechnologiesGrid from "../components/ResumeTechnologiesGrid";
 import ResumeTechnologiesGroup from "../components/ResumeTechnologiesGroup";
 import ResumeTechnologiesItem from "../components/ResumeTechnologiesItem";
